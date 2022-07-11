@@ -13,9 +13,9 @@ public class Main {
         UserDao userDao = new UserDaoJDBCImpl();
         userDao.createUsersTable();
         userDao.saveUser("ARTEM", "TOMILIN" , (byte) 22);
-        userDao.removeUserById(1);
-        userDao.getAllUsers();
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+//        userDao.removeUserById(1);
+//        userDao.getAllUsers();
+//        userDao.cleanUsersTable();
+//        userDao.dropUsersTable();
     }
 }
