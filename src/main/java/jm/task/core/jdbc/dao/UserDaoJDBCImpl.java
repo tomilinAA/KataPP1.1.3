@@ -25,6 +25,8 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 
@@ -37,6 +39,8 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 
@@ -50,6 +54,8 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 
@@ -62,6 +68,8 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 
@@ -78,6 +86,8 @@ public class UserDaoJDBCImpl implements UserDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            connection.setAutoCommit(true);
         }
         return userList;
     }
@@ -86,11 +96,13 @@ public class UserDaoJDBCImpl implements UserDao {
         String request = "TRUNCATE TABLE users";
         try (Statement statement = connection.createStatement()) {
             connection.setAutoCommit(false);
-            statement.execute("TRUNCATE TABLE users");
+            statement.execute(request);
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 }
